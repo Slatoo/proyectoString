@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
-export default function Component2() {
-  const test = useSelector((state) => state.text.value);
-  const [textBoolean, setTextBoolean] = useState();
+export default function Component2(props) {
+  const textString = props.textTest;
+  const [textBoolean, setTextBoolean] = useState(false);
 
   useEffect(() => {
-    const textLength = test;
-    if (textLength.length >= 5) {
+    if (textString.length >= 5) {
       setTextBoolean(true);
-    } else if (textLength.length !== 10) {
+    } else if (textString.length < 5) {
       setTextBoolean(false);
     }
-  }, [test]);
+  }, [textString]);
 
-  return <>{textBoolean && <p>mayor que 5!</p>}</>;
+  return <>{textBoolean && <p>mayor o igual a 5</p>}</>;
 }

@@ -7,6 +7,7 @@ export default function Component1() {
   const dispatch = useDispatch();
   const test = useSelector((state) => state.text.value);
   const [inputText, setInputText] = useState("");
+  
 
   return (
     <>
@@ -28,3 +29,4 @@ export default function Component1() {
     </>
   );
 }
+
